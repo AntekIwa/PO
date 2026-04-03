@@ -1,6 +1,6 @@
 package Ludzie;
 
-public class Czlowiek extends Osoba{
+public class Czlowiek extends Osoba {
     public Czlowiek(String imie, String nazwisko) {
         super(imie, nazwisko);
     }
