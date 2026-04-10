@@ -2,14 +2,14 @@ import Ludzie.Osoba;
 
 public class BuforCykliczny {
 
-    private Osoba[] tablica = new Osoba [4];
+    private Ulamek[] tablica = new Ulamek [4];
     private int pojemnosc = 4;
     private int rozmiar = 0;
     private int poczatek = 0;
 
     private void powieksz()
     {
-        Osoba[] nowy = new Osoba[pojemnosc * 2];
+        Ulamek[] nowy = new Ulamek[pojemnosc * 2];
 
         for(int i = 0; i < rozmiar; i++)  
             nowy[i] = tablica[(poczatek + i) % pojemnosc];
@@ -21,7 +21,7 @@ public class BuforCykliczny {
 
     private void pomniejsz()
     {
-        Osoba[] nowy = new Osoba[pojemnosc / 2];
+        Ulamek[] nowy = new Ulamek[pojemnosc / 2];
 
         for(int i = 0; i < rozmiar; i++)
             nowy[i] = tablica[(poczatek + i) % pojemnosc];
@@ -36,21 +36,21 @@ public class BuforCykliczny {
         return rozmiar == 0;
     }
 
-    public void dodaj(Osoba elem)
+    public void dodaj(Ulamek elem)
     {
         if(rozmiar == pojemnosc) powieksz();
         tablica[(poczatek + rozmiar) % pojemnosc] = elem;
         rozmiar++;
     }
 
-    public Osoba pobierz()
+    public Ulamek pobierz()
     {
         if(pusty()) return null;
-        Osoba o = tablica[poczatek];
+        Ulamek ulamek = tablica[poczatek];
         rozmiar--;
         poczatek = (poczatek + 1)  % pojemnosc;
         if(pojemnosc > 8 && rozmiar <= pojemnosc / 4) pomniejsz();
-        return o;
+        return ulamek;
     }
 
     public void wypisz()
