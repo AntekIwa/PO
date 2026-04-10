@@ -4,30 +4,29 @@ import Ludzie.Agent;
 
 public class Main {
     public static void main(String[] args){
-        Osoba[] tablica = new Osoba[4];
-        int liczbaElementow = 0;
-        Osoba[] nowiLudzie = {
-                new Czlowiek("Jan", "Kowalski"),
-                new Agent("James", "Bond"),
-                new Czlowiek("Anna", "Nowak"),
-                new Agent("Darth", "Vader"),
-                new Czlowiek("Yoda", "Yoda") 
-        };
-        for (Osoba o : nowiLudzie) {
-            if (liczbaElementow >= tablica.length) {
-                System.out.println("-> Brak miejsca, powiekszamy tablice z: " + tablica.length + " na " + (tablica.length * 2) + ".");
-                tablica = BuforCykliczny.powieksz(tablica);
-            }
-            tablica[liczbaElementow] = o;
-            liczbaElementow++;
-        }
-        for (int i = 0; i < liczbaElementow; i++) {
-            tablica[i].przedstawSie();
-        }
 
-        testUlamkow();
+       // testUlamkow();
+        testBufora();
     }
 
+    static void testBufora(){
+        BuforCykliczny bufor = new BuforCykliczny();
+        Ulamek u1 = new Ulamek(4, 8);
+        Ulamek u2 = new Ulamek(2, -1);
+        Ulamek u3 = new Ulamek(0, 5);
+        bufor.dodaj(u1);
+        bufor.dodaj(u2);
+        bufor.dodaj(u3);
+        bufor.wypisz();
+        System.out.println(bufor.pobierz());
+        bufor.wypisz();
+        System.out.println(bufor.pobierz());
+        bufor.wypisz();
+        System.out.println(bufor.pobierz());
+        bufor.wypisz();
+        System.out.println(bufor.pobierz());
+
+    }
     static void testUlamkow(){
 
        Ulamek u1 = new Ulamek(4, 8);

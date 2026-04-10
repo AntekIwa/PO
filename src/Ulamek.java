@@ -97,6 +97,6 @@ public class Ulamek {
         skroc();
         if(mianownik == 1) return licznik + "";
         else if(licznik == 0) return "0";
-        else return licznik + " / " + mianownik;
+        else return licznik + "/" + mianownik;
     }
 }
